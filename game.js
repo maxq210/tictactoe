@@ -6,8 +6,6 @@ var solutions = [
 ];
 
 function clickHandler(id) {
-	//console.log(id);
-	//console.log("inner: " + document.getElementById(id).innerHTML)
 	if(document.getElementById(id).innerHTML === '' && currPlayer){
 		document.getElementById(id).innerHTML = "X";
 		x.push(parseInt(id));
@@ -29,7 +27,8 @@ function checkSol(player) {
 				break;
 			}
 			if(j === 2){
-				console.log("Winner!")
+				document.body.innerHTML = "<h1>" + "Winner!" + "</h1>";
+				console.log('Winner!')
 				return;
 			}
 		}
