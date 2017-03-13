@@ -9,25 +9,26 @@ function clickHandler(id) {
 	if(document.getElementById(id).innerHTML === '' && currPlayer){
 		document.getElementById(id).innerHTML = "X";
 		x.push(parseInt(id));
-		console.log(x);
-		checkSol(x);
+		checkSol(x, 1);
 		currPlayer = !currPlayer;
 	}
 	else if (document.getElementById(id).innerHTML === ''){
 		document.getElementById(id).innerHTML = "O";
-		o.push(id);
+		o.push(parseInt(id));
+		checkSol(o, 2);
 		currPlayer = !currPlayer;
 	}
 }
 
-function checkSol(player) {
+function checkSol(player, playerNum) {
 	for(var i = 0; i < solutions.length; i++) {
 		for(var j = 0; j < 3; j++) {
 			if(player.indexOf(solutions[i][j]) === -1){
+				console.log(o);
 				break;
 			}
 			if(j === 2){
-				document.body.innerHTML = "<h1>" + "Winner!" + "</h1>";
+				document.body.innerHTML = "<h1>" + "Winner: Player " + playerNum + "</h1>";
 				console.log('Winner!')
 				return;
 			}
